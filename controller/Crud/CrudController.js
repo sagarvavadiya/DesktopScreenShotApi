@@ -28,10 +28,12 @@ class CRUDController {
             });
           })
           .catch((err) => {
+            console.log(err, "screenshot");
             return res.status(500).json({ error: err });
           });
       });
     } catch (error) {
+      console.log(error, "try");
       return res.status(500).json({ error: error });
     }
   };
