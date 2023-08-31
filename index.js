@@ -8,5 +8,5 @@ app.use(express.json());
 
 app.use(crud);
 app.listen(port, () => {
-  console.log(`Running on ${port} port`);
+  console.log(`Running on ${port} port  http://localhost:5020`);
 });
