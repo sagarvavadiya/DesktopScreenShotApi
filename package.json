@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "active-win": "^8.1.0",
     "cors": "^2.8.5",
     "desktop-screenshot": "^0.1.1",
     "electron": "^26.1.0",
@@ -19,6 +20,8 @@
     "ip": "^2.0.0",
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.0.3",
+    "node-screen-dpi": "^2.3.0",
+    "node-screenshot": "^0.1.1",
     "nodemailer": "^6.9.4",
     "nodemon": "^2.0.22",
     "npm": "^9.8.1",

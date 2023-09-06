@@ -2,7 +2,8 @@ const robot = require("robotjs");
 const { app, BrowserWindow, screen } = require("electron");
 // Get the current mouse cursor position
 const mousePos = robot.getMousePos();
-
+const activeWin = require("active-win");
+const screenshot = require("node-screenshot");
 // Find the screen that contains the mouse cursor
 const screen2 = robot.getScreenSize();
 
@@ -64,4 +65,29 @@ const CurrentScreen = () => {
   return "ok";
 };
 
-module.exports = { CurrentScreen, CurrentScreen2 };
+const TakeActiveScreen = () => {
+  // activeWin().then(result => {
+  //   if (result) {
+  //     const activeWindowId = result.id;
+
+  //     // Capture a screenshot of the active window
+  //     screenshot({
+  //       screen: {
+  //         windowId: activeWindowId,
+  //       },
+  //       filename: 'active_window_screenshot.png', // Change this to your desired filename
+  //     }, (err, imagePath) => {
+  //       if (err) {
+  //         console.error('Error capturing screenshot:', err);
+  //       } else {
+  //         console.log('Screenshot captured:', imagePath);
+  //       }
+  //     });
+  //   } else {
+  //     console.error('No active window found.');
+  //   }
+  // });
+  console.log("process", process);
+  return process.platform;
+};
+module.exports = { CurrentScreen, CurrentScreen2, TakeActiveScreen };

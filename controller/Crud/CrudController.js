@@ -1,12 +1,15 @@
 const ip = require("ip");
 const fs = require("fs");
+const activeWin = require("active-win");
 const screenshot = require("screenshot-desktop");
 var screenshot2 = require("desktop-screenshot");
-const { CurrentScreen } = require("./CurrentActiveScreen");
+const { CurrentScreen, TakeActiveScreen } = require("./CurrentActiveScreen");
+const { GetScreen } = require("node-screen-dpi");
+const screen = GetScreen(); // {dpi: i,...}
 
 class CRUDController {
   static TakeScreenShot = async (req, res) => {
-    try { 
+    try {
       await screenshot.listDisplays().then(async (displays) => {
         // displays: [{ id, name }, { id, name }]
 
@@ -23,11 +26,11 @@ class CRUDController {
             });
           })
         )
-          .then((result) => {
+          .then((result) => { 
             return res.json({
               stutus: 1,
               message: "Screenshot added Successfully",
-              image: ScreenShotData,
+              image: ScreenShotData.reverse(),
             });
           })
           .catch((err) => {
@@ -42,7 +45,7 @@ class CRUDController {
   };
   static ActiveScreen = async (req, res) => {
     try {
-      CurrentScreen();
+     
       return res.json({
         stutus: 1,
         message: "Screenshot added Successfully",
